@@ -1,0 +1,185 @@
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix synsem: <http://www.w3.org/ns/lemon/synsem#> .
+@prefix decomp: <http://www.w3.org/ns/lemon/decomp#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
+@prefix lime: <http://www.w3.org/ns/lemon/lime#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos#>.
+@prefix dbr: <http://dbpedia.org/resource/>.
+@prefix dbo: <http://dbpedia.org/ontology/>.
+@prefix void: <http://rdfs.org/ns/void#>.
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#>.
+@prefix semiotics: <http://www.ontologydesignpatterns.org/cp/owl/semiotics.owl#>.
+@prefix oils: <http://lemon-model.net/oils#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix provo: <http://www.w3.org/ns/prov#>.
+
+
+:lexicon a ontolex:Lexicon ;
+    ontolex:entry :cat .
+
+:cat a ontolex:Word .
+
+:minimum_finance_lease_payments a ontolex:MultiwordExpression .
+
+:anti- a ontolex:Affix .
+
+
+:lex_child a ontolex:LexicalEntry ;                                                
+  ontolex:lexicalForm :form_child_singular, :form_child_plural .              
+                                                                                
+:form_child_singular a ontolex:Form ;                                          
+  ontolex:writtenRep "child"@en .                                               
+                                                                                
+:form_child_plural a ontolex:Form ;                                            
+  ontolex:writtenRep "children"@en .
+
+:lex_color a ontolex:LexicalEntry;
+     ontolex:lexicalForm :form_color.
+
+:form_color a ontolex:Form;
+     ontolex:writtenRep "colour"@en-GB, "color"@en-US.
+
+:lex_privacy a ontolex:LexicalEntry;
+     ontolex:lexicalForm :form_privacy.
+
+:form_privacy a ontolex:Form;
+     ontolex:writtenRep "privacy"@en;
+     ontolex:phoneticRep "ˈpɹɪv.ə.si"@en-US;
+     ontolex:phoneticRep "ˈpɹaɪ.və.si"@en-GB.
+
+:lex_cat a ontolex:LexicalEntry, ontolex:Word;
+     ontolex:canonicalForm :form_cat;
+     rdfs:label "cat"@en .
+
+:form_cat a ontolex:Form;
+     ontolex:writtenRep "cat"@en .
+
+:lex_marry a ontolex:LexicalEntry, ontolex:Word;
+     ontolex:canonicalForm :form_marry;
+     rdfs:label "marry"@en .
+
+:form_marry a ontolex:Form;
+     ontolex:writtenRep "marry"@en .
+
+:lex_high a ontolex:LexicalEntry, ontolex:Word;
+     ontolex:canonicalForm :form_high;
+     rdfs:label "high"@en .
+
+:form_high a ontolex:Form; 
+    ontolex:writtenRep "high"@en .
+
+:lex_intangible_assets a ontolex:LexicalEntry, ontolex:MultiwordExpression;
+     ontolex:canonicalForm :form_intangible_assets;
+     rdfs:label "intangible assets"@en .
+
+:form_intangible_assets a ontolex:Form;
+     ontolex:writtenRep "intangible assets"@en .
+
+:nasa a ontolex:LexicalEntry, lexinfo:Acronym ;
+  ontolex:canonicalForm :form_nasa ;
+  lexinfo:abbreviationFor :national_aeronautics_and_space_administration;
+  rdfs:label "NASA"@en .
+
+:form_nasa a ontolex:Form ;
+  ontolex:writtenRep "NASA"@en .
+
+:national_aeronautics_and_space_administration a ontolex:LexicalEntry, ontolex:MultiwordExpression ;
+  ontolex:canonicalForm :form_national_aeronautics_and_space_administration ;
+  lexinfo:abbreviationFor :nasa ;
+  rdfs:label "National Aeronautics and Space Administration"@en .
+
+:form_national_aeronautics_and_space_administration a ontolex:Form ;
+  ontolex:writtenRep "National Aeronautics and Space Administration"@en .
+
+:lex_marry a ontolex:LexicalEntry ;
+  ontolex:canonicalForm :form_marry ;
+  ontolex:otherForm :form_marries .
+
+:form_marry a ontolex:Form;
+     ontolex:writtenRep "marry"@en .
+
+:form_marries a ontolex:Form;
+     ontolex:writtenRep "marries"@en .
+
+:amare ontolex:morphologicalPattern :latin_first_conjugation ;
+  ontolex:canonicalForm :amare_form .
+
+:amare_form ontolex:writtenRep "amare"@la .
+
+:videre ontolex:morphologicalPattern :latin_second_conjugation ;
+  ontolex:canonicalForm :videre_form .
+
+:videre_form ontolex:writtenRep "videre"@la .
+
+:lex_cat a ontolex:LexicalEntry;
+   ontolex:canonicalForm :form_cat;
+   ontolex:denotes <http://dbpedia.org/resource/Cat>.
+
+:form_cat a ontolex:Form;
+   ontolex:writtenRep "cat"@en.
+
+:lex_marriage a ontolex:LexicalEntry;
+   ontolex:canonicalForm :form_marriage;
+   ontolex:denotes <http://dbpedia.org/resource/Marriage>.
+
+:form_marriage a ontolex:Form;
+   ontolex:writtenRep "marriage"@en .
+
+:troll a ontolex:LexicalEntry ;
+  ontolex:denotes <http://dbpedia.org/resource/Troll> ;
+  ontolex:denotes <http://dbpedia.org/resource/Internet_troll> .
+
+:bank1_en a ontolex:LexicalEntry ;
+  dct:language <http://id.loc.gov/vocabulary/iso639-2/eng>, <http://lexvo.org/id/iso639-1/en> ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lexinfo:etymologicalRoot :banque_frm ;
+  ontolex:denotes <http://dbpedia.org/resource/Bank> .
+
+:bank2_en a ontolex:LexicalEntry ;
+  dct:language <http://id.loc.gov/vocabulary/iso639-2/eng>, <http://lexvo.org/id/iso639-1/en> ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lexinfo:etymologicalRoot :hobanca_ang ;
+  ontolex:denotes <http://dbpedia.org/resource/Bank_(geographic)> .
+
+:bank3_en a ontolex:LexicalEntry ;
+  dct:language <http://id.loc.gov/vocabulary/iso639-2/eng>, <http://lexvo.org/id/iso639-1/en> ;
+  lexinfo:partOfSpeech lexinfo:verb ;
+  lexinfo:etymologicalRoot :hobanca_ang ;
+  ontolex:denotes <http://dbpedia.org/resource/Banked_turn> .
+
+:bank1_de a ontolex:LexicalEntry ;
+  dct:language <http://id.loc.gov/vocabulary/iso639-2/de>, <http://lexvo.org/id/iso639-1/de> ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lexinfo:gender lexinfo:feminine ;
+  ontolex:denotes <http://dbpedia.org/resource/Bank> ;
+  ontolex:otherForm :banken .
+
+:banken ontolex:writtenRep "Banken"@de ;
+  lexinfo:number lexinfo:plural .
+
+:bank2_de a ontolex:LexicalEntry ;
+  dct:language <http://id.loc.gov/vocabulary/iso639-2/de>, <http://lexvo.org/id/iso639-1/de> ;
+  lexinfo:partOfSpeech lexinfo:noun ;
+  lexinfo:gender lexinfo:feminine ;
+  ontolex:denotes <http://dbpedia.org/resource/Bench_(furniture)> ;
+  ontolex:otherForm :baenke .
+
+:baenke ontolex:writtenRep "Bänke"@de ;
+  lexinfo:number lexinfo:plural .
+
+:female a ontolex:LexicalEntry; 
+  lexinfo:partOfSpeech lexinfo:adjective;
+  ontolex:canonicalForm :female_canonical_form;
+  ontolex:sense :female_sense.
+
+:female_canonical_form ontolex:writtenRep "female"@en.
+
+:female_sense ontolex:reference [
+    a owl:Restriction;
+    owl:onProperty <http://dbpedia.org/ontology/gender> ;
+    owl:hasValue <http://dbpedia.org/resource/Female> ] ;
+  synsem:isA :female_arg .
