@@ -3,9 +3,9 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix lime: <http://www.w3.org/ns/lemon/lime#> .
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
-
 
 ### Shapes for Core 
 ### Shape for LexicalEntry
@@ -56,7 +56,8 @@
     ] .
 
 ### Shape for LexicalSense
-<LexicalSensehape> a sh:NodeShape ;
+<LexicalSenseShape> a sh:NodeShape ;
+    sh:targetClass ontolex:LexicalSense ;
     sh:property [
         sh:name "isSenseOf";
         sh:description "Each Lexical Sense must be associated with exactly one Lexical Entry.";
@@ -73,12 +74,34 @@
         sh:maxCount 1 ;
         sh:nodeKind sh:BlankNodeOrIRI ;
     ] .
-    
-### Shape for Multiword Expressions (optional)
-<MultiwordShape> a sh:NodeShape ;
-    sh:targetClass ontolex:MultiwordExpression ;
+
+
+### Shape for LIME
+
+<LexiconShape> a sh:NodeShape ;
+    sh:targetClass lime:Lexicon ;
+
+        sh:property [
+        sh:name "Language" ;
+        sh:description "The language of the lexical entries." ;
+        sh:path lime:language ;
+        sh:nodeKind sh:Literal ;
+        sh:minCount 1 ;
+    ] ;
+
     sh:property [
-        sh:path ontolex:component ;
-        sh:minCount 2 ;
+        sh:name "Lexical Entries" ;
+        sh:description "The lexical entries that belong to this lexicon." ;
+        sh:path lime:entry ;
         sh:class ontolex:LexicalEntry ;
-    ] .
+        sh:minCount 1 ;
+    ]  ; 
+    sh:property 
+    [
+        sh:name "Lexical Entries (Datatype Property)" ; 
+        sh:description "The number of distinct lexical entries contained in the resource";
+        sh:path lime:lexicalEntries ; 
+        sh:datatype xsd:integer ; 
+        sh:maxCount 1;
+    ]
+    .
